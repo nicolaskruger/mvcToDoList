@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>To Do List</title>
+</head>
+<body>
+    <header>
+        <div id="cab">
+            <h1>
+                lista de afazeres
+            </h1>
+        </div>
+    </header>
+    <!-- <input id="filtro" type="text"> -->
+    <main>
+        <div id="lista"></div>
+        <!-- <ul class="lista">
+            <li class="interLista">
+                <p>
+                    afazeres 1
+                </p>
+                <p>
+                    fazer as compras
+                </p>
+                <p>
+                    27/05/1997
+                </p>
+                <p>
+                    -1
+                </p>
+                <button>X</button>
+            </li>
+            <li class="interLista">
+                <p class="nomeL">
+                    b
+                </p>
+                <p class="descL">
+                    fazer as compras
+                </p>
+                <p class="dateL">
+                    27/05/1997
+                </p>
+                <p class="timeL">
+                    -1
+                </p>
+                <button>X</button>
+            </li>
+        </ul> -->
+        <form action="" class="forma" onsubmit="controller.add(event)">
+            <label for="nome">nome</label>
+            <p class="inv nomeP">nome invalido</p>
+            <input type="text" name="nome" id="nome" required>
+            <label for="desc">descrição</label>
+            <p class="inv descP">descrição invalido</p>
+            <input type="text" name="desc" id="desc" required>
+            <label for="data">data</label>
+            <p class="inv dataP">data invalido</p>
+            <input type="date" name=" data" id="data" required>
+            <button id="submit"> push</button>
+        </form>
+        <script src="./dist/model/toDo.js"></script>
+        <script src="./dist/model/listaToDo.js"></script>
+        <script src="./dist/controller/controlerToDo.js"></script>
+        <script src="./dist/helper/dateHelper.js"></script>
+        <script src="./dist/view/viewToDo.js"></script>
+        <script src="./dist/app.js"></script>
+        
+    </main>
+</body>
+</html>

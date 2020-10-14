@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    color: lavender;
+}
+body{
+    background-color: rgb(43, 40, 40);
+}
+#cab{
+    background-color: black;
+    color: lavender;
+
+}
+#cab > h1{
+    margin-left: 1rem;
+}
+.lista{
+    margin: 0;
+    padding: 0;
+    
+    align-items: center;
+}
+.interLista{
+    display: grid;
+    grid-template-columns: 15% 40% 10% 10% 5%;
+    width: 100%;
+    color: lavender;
+    align-items: center;
+    justify-content: center;
+}
+.interLista > h3,
+.interLista > p,
+.interLista > button{
+    height: 100%;
+    border: 1px solid #ccc;
+    word-wrap:  break-word;
+}
+.forma{
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    width: 20%;
+    margin-left: 40%;
+}
+.forma > p{
+    color: red;
+}
+input,button{
+    color: gray;
+}
+.inv{
+    display: none;
+}
