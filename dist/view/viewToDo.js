@@ -1,5 +1,6 @@
 class viewToDo {
-    constructor() {
+    constructor(elemet) {
+        this.element = elemet;
     }
     template(models) {
         return `
@@ -14,8 +15,8 @@ class viewToDo {
             `).join('')}      
         </ul>`;
     }
-    set(element, models) {
-        element.innerHTML = this.template(models);
+    set(models) {
+        this.element.innerHTML = this.template(models);
     }
 }
 //# sourceMappingURL=viewToDo.js.map

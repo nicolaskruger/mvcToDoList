@@ -6,8 +6,9 @@ class controllerToDo{
         this.$("#data") as HTMLInputElement,
     ];
     private L = this.$("#lista");
-    private lista = new listaToDo();
-    private view = new viewToDo();
+    
+    private view = new viewToDo(this.L);
+    private lista = ProxyFactory.create(new listaToDo(),['add'],(model)=>this.view.set(model));
     constructor(){
 
     }
@@ -16,7 +17,6 @@ class controllerToDo{
         let todo = new toDo(...this.inputs
                             .map(s => s.value));
         this.lista.add(todo);
-        this.view.set(this.L,this.lista);
         this.clear();
     }
     clear(){

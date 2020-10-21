@@ -7,15 +7,15 @@ class controllerToDo {
             this.$("#data"),
         ];
         this.L = this.$("#lista");
-        this.lista = new listaToDo();
-        this.view = new viewToDo();
+        this.view = new viewToDo(this.L);
+        this.lista = ProxyFactory.create(new listaToDo(), ['add'], (model) => this.view.set(model));
     }
     add(event) {
         event.preventDefault();
         let todo = new toDo(...this.inputs
             .map(s => s.value));
         this.lista.add(todo);
-        this.view.set(this.L, this.lista);
+        //this.view.set(this.lista);
         this.clear();
     }
     clear() {

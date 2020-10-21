@@ -1,6 +1,7 @@
 class viewToDo {
-    constructor() {
-        
+    private element:HTMLLIElement;
+    constructor(elemet:HTMLLIElement) {
+        this.element = elemet;
     }
     private template(models:listaToDo){
         return `
@@ -15,7 +16,7 @@ class viewToDo {
             `).join('')}      
         </ul>`
     }
-    public set(element:HTMLLIElement,models:listaToDo){
-        element.innerHTML= this.template(models);
+    public set(models:listaToDo){
+        this.element.innerHTML= this.template(models);
     }
 }
