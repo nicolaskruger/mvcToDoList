@@ -9,11 +9,10 @@ class controllerToDo {
         this.L = this.$("#lista");
         this.lista = ProxyFactory.create(new listaToDo(), ['add'], (model) => this.view.set(model));
         this.view = new viewToDo(this.L);
-        this.indexDb = new controllerIndexDb();
-        setTimeout(() => { this.addDb(); }, 1000);
+        this.addDb();
     }
     addDb() {
-        this.indexDb.Lista.then(s => {
+        ConnectionFactory.getLista().then(s => {
             this.lista.add(...s);
         }).catch(e => {
             console.log(e);
@@ -24,7 +23,7 @@ class controllerToDo {
         let todo = new toDo(...this.inputs
             .map(s => s.value));
         this.lista.add(todo);
-        this.indexDb.add(todo);
+        ConnectionFactory.add(todo);
         this.clear();
     }
     clear() {

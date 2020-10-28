@@ -9,17 +9,15 @@ class controllerToDo{
     
     private lista:listaToDo; //= ProxyFactory.create(new listaToDo(),['add'],(model)=>this.view.set(model));
     private view:viewToDo;// = new viewToDo(this.L);
-    private indexDb:controllerIndexDb; //= new controllerIndexDb(); 
 
     constructor(){
         this.lista = ProxyFactory.create(new listaToDo(),['add'],(model)=>this.view.set(model));
         this.view = new viewToDo(this.L);
-        this.indexDb = new controllerIndexDb(); 
-        setTimeout(()=>{this.addDb()},1000);
+        this.addDb();
     }
     addDb(){
-        this.indexDb.Lista.then(s=>{
-            this.lista.add(...s as Array<toDo>);
+        ConnectionFactory.getLista().then(s=>{
+            this.lista.add(...s);
         }).catch(e =>{
             console.log(e)
         })
@@ -29,7 +27,7 @@ class controllerToDo{
         let todo = new toDo(...this.inputs
                             .map(s => s.value));
         this.lista.add(todo);
-        this.indexDb.add(todo);
+        ConnectionFactory.add(todo);
         this.clear();
     }
     clear(){

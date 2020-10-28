@@ -5,8 +5,9 @@ class controllerIndexDb {
     private openRequest:IDBOpenDBRequest;
     private connection:IDBDatabase;
     private tableName = "lis";
+    private dbName = "toDo";
     constructor() {
-        this.openRequest = window.indexedDB.open("toDo",1);
+        this.openRequest = window.indexedDB.open(this.dbName,1);
         
         this.openRequest.onupgradeneeded = (e) =>{
             console.log("cria ou altera u banco");
