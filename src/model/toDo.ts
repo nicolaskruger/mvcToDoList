@@ -10,9 +10,13 @@ class toDo {
     get Info():Array<string>{
         return [this.nome,this.desc,this.data.toDateString(),this.DaysTo.toFixed(2)];
     }
-    constructor(nome:string =" atividae",desc:string ="o  q fazer",date:string = "2017-11-11"){
+    constructor(nome:string =" atividae",desc:string ="o  q fazer",date:(string) = "2017-11-11"){
         this.nome =nome;
         this.desc = desc;
-        this.data = DataHelper.stringToDate(date);
+        try {
+            this.data = DataHelper.stringToDate(date as string);
+        } catch (error) {
+            this.data = new Date(date);
+        }
     }   
 }

@@ -3,7 +3,8 @@ class listaToDo{
     public get Lis(){
         return [...this.lis];
     }
-    public add(l:toDo){
-        this.lis.push(l);
+    public add(...l:Array<toDo>){
+        console.log(l);
+        this.lis.push(...l);
     }
 }

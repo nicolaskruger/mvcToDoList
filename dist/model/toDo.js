@@ -9,7 +9,12 @@ class toDo {
     constructor(nome = " atividae", desc = "o  q fazer", date = "2017-11-11") {
         this.nome = nome;
         this.desc = desc;
-        this.data = DataHelper.stringToDate(date);
+        try {
+            this.data = DataHelper.stringToDate(date);
+        }
+        catch (error) {
+            this.data = new Date(date);
+        }
     }
 }
 //# sourceMappingURL=toDo.js.map
