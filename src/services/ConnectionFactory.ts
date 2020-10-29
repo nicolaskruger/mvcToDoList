@@ -1,5 +1,5 @@
 class ConnectionFactory{
-    private static stores = ["lis"];
+    static stores = ["lis"];
     private static dbName = "toDo";
     private static version = 1;
     private static connection:IDBDatabase =null;

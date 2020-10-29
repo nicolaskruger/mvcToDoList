@@ -12,19 +12,27 @@ class controllerToDo {
         this.addDb();
     }
     addDb() {
-        ConnectionFactory.getLista().then(s => {
-            this.lista.add(...s);
-        }).catch(e => {
-            console.log(e);
+        ConnectionFactory.getConnection()
+            .then(connection => {
+            new toDodao(connection)
+                .getLista()
+                .then(lis => this.lista.add(...lis));
         });
     }
     add(event) {
         event.preventDefault();
-        let todo = new toDo(...this.inputs
-            .map(s => s.value));
-        this.lista.add(todo);
-        ConnectionFactory.add(todo);
-        this.clear();
+        ConnectionFactory.getConnection()
+            .then(connection => {
+            let todo = new toDo(...this.inputs
+                .map(s => s.value));
+            new toDodao(connection)
+                .add(todo)
+                .then(() => {
+                this.lista.add(todo);
+                this.clear();
+            });
+        });
+        //ConnectionFactory.add(todo);
     }
     clear() {
         this.inputs.forEach(s => {
