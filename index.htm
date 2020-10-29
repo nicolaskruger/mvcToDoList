@@ -17,38 +17,7 @@
     <!-- <input id="filtro" type="text"> -->
     <main>
         <div id="lista"></div>
-        <!-- <ul class="lista">
-            <li class="interLista">
-                <p>
-                    afazeres 1
-                </p>
-                <p>
-                    fazer as compras
-                </p>
-                <p>
-                    27/05/1997
-                </p>
-                <p>
-                    -1
-                </p>
-                <button>X</button>
-            </li>
-            <li class="interLista">
-                <p class="nomeL">
-                    b
-                </p>
-                <p class="descL">
-                    fazer as compras
-                </p>
-                <p class="dateL">
-                    27/05/1997
-                </p>
-                <p class="timeL">
-                    -1
-                </p>
-                <button>X</button>
-            </li>
-        </ul> -->
+      
         <form action="" class="forma" onsubmit="controller.add(event)">
             <label for="nome">nome</label>
             <p class="inv nomeP">nome invalido</p>
@@ -60,6 +29,7 @@
             <p class="inv dataP">data invalido</p>
             <input type="date" name=" data" id="data" required>
             <button id="submit"> push</button>
+            <button id="apaga" type="button" onclick="controller.erase(event)"> clear</button>
         </form>
         <script src="./dist/services/ProxyFactory.js"></script>
         <script src="./dist/model/toDo.js"></script>
@@ -67,6 +37,7 @@
         <script src="./dist/dao/toDodao.js"></script>
         <script src="./dist/controller/controllerIndexDb.js"></script>
         <script src="./dist/services/ConnectionFactory.js"></script>
+        <script src="dist/services/toDoServices.js"></script>
         <script src="./dist/controller/controlerToDo.js"></script>
         <script src="./dist/helper/dateHelper.js"></script>
         <script src="./dist/view/viewToDo.js"></script>

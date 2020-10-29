@@ -7,32 +7,32 @@ class controllerToDo {
             this.$("#data"),
         ];
         this.L = this.$("#lista");
-        this.lista = ProxyFactory.create(new listaToDo(), ['add'], (model) => this.view.set(model));
+        this.service = new toDoServices();
+        this.lista = ProxyFactory.create(new listaToDo(), ['add', 'erase'], (model) => this.view.set(model));
         this.view = new viewToDo(this.L);
         this.addDb();
     }
     addDb() {
-        ConnectionFactory.getConnection()
-            .then(connection => {
-            new toDodao(connection)
-                .getLista()
-                .then(lis => this.lista.add(...lis));
-        });
+        this.service
+            .getLista()
+            .then((lis) => this.lista.add(...lis));
     }
     add(event) {
         event.preventDefault();
-        ConnectionFactory.getConnection()
-            .then(connection => {
-            let todo = new toDo(...this.inputs
-                .map(s => s.value));
-            new toDodao(connection)
-                .add(todo)
-                .then(() => {
-                this.lista.add(todo);
-                this.clear();
-            });
+        let todo = new toDo(...this.inputs
+            .map(s => s.value));
+        this.service
+            .add(todo)
+            .then(() => {
+            this.lista.add(todo);
+            this.clear();
         });
-        //ConnectionFactory.add(todo);
+    }
+    erase(envent) {
+        this.service
+            .erase()
+            .then(() => this.lista.erase())
+            .catch(() => console.log("error"));
     }
     clear() {
         this.inputs.forEach(s => {

@@ -6,8 +6,10 @@ class listaToDo {
         return [...this.lis];
     }
     add(...l) {
-        console.log(l);
         this.lis.push(...l);
+    }
+    erase() {
+        this.lis = [];
     }
 }
 //# sourceMappingURL=listaToDo.js.map

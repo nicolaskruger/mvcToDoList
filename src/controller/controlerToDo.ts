@@ -10,36 +10,34 @@ class controllerToDo{
     private lista:listaToDo; //= ProxyFactory.create(new listaToDo(),['add'],(model)=>this.view.set(model));
     private view:viewToDo;// = new viewToDo(this.L);
 
+    private service:toDoServices = new toDoServices();
     constructor(){
-        this.lista = ProxyFactory.create(new listaToDo(),['add'],(model)=>this.view.set(model));
+        this.lista = ProxyFactory.create(new listaToDo(),['add','erase'],(model)=>this.view.set(model));
         this.view = new viewToDo(this.L);
         this.addDb();
     }
     addDb(){
-        ConnectionFactory.getConnection()
-                        .then(connection=>{
-                            new toDodao(connection)
-                                .getLista()
-                                .then(lis=> this.lista.add(...lis))
-                        })
-       
+        this.service
+            .getLista()
+            .then((lis)=>this.lista.add(...lis));
     }
     add(event:Event):void{
         event.preventDefault();
-        ConnectionFactory.getConnection()
-            .then(connection=>{
-                let todo = new toDo(...this.inputs
-                    .map(s => s.value));
-                new toDodao(connection)
-                        .add(todo)
-                        .then(()=>{
-                            this.lista.add(todo);
-                            this.clear();
-                        })
-
-                        
+        let todo = new toDo(...this.inputs
+            .map(s => s.value));
+        this.service
+            .add(todo)
+            .then(()=>{
+                this.lista.add(todo)
+                this.clear();
             })
-        //ConnectionFactory.add(todo);
+        
+    }
+    erase(envent:Event){
+        this.service
+            .erase()
+            .then(()=>this.lista.erase())
+            .catch(()=> console.log("error"));
     }
     clear(){
         this.inputs.forEach(s=>{

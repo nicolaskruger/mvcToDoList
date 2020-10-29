@@ -44,5 +44,15 @@ class toDodao {
             };
         });
     }
+    erase() {
+        return new Promise((resolve, reject) => {
+            let erase = this.connection
+                .transaction([this.store], 'readwrite')
+                .objectStore(this.store)
+                .clear();
+            erase.onsuccess = e => resolve();
+            erase.onerror = e => reject();
+        });
+    }
 }
 //# sourceMappingURL=toDodao.js.map

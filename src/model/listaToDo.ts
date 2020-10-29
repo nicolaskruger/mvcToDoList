@@ -4,7 +4,9 @@ class listaToDo{
         return [...this.lis];
     }
     public add(...l:Array<toDo>){
-        console.log(l);
         this.lis.push(...l);
+    }
+    public erase(){
+        this.lis = [];
     }
 }
