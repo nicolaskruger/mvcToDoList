@@ -1,7 +1,7 @@
-function DateToString(dat:Date){
+export function DateToString(dat:Date){
     return dat.getDate()+'/'+((dat.getMonth()+1)<10?`0${dat.getMonth()+1}`:`${(dat.getMonth()+1)}`)+'/'+dat.getFullYear();
 }
-class DataHelper{
+export class DataHelper{
 
     constructor(){
         throw new Error("data helper não pode ser instanciado");

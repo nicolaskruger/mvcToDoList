@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 class ProxyFactory {
     static create(obj, props, acao) {
         return new Proxy(obj, {
@@ -24,4 +26,5 @@ class ProxyFactory {
         return (typeof (obj) == typeof (Function));
     }
 }
+exports.ProxyFactory = ProxyFactory;
 //# sourceMappingURL=ProxyFactory.js.map

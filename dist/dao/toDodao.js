@@ -1,13 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const ConnectionFactory_1 = require("../services/ConnectionFactory");
+const toDo_1 = require("../model/toDo");
 class toDodao {
     constructor(connetion) {
-        this.store = ConnectionFactory.stores[0];
+        this.store = ConnectionFactory_1.ConnectionFactory.stores[0];
         this.connection = connetion;
     }
     getObjetStore() {
-        return ConnectionFactory.getConnection()
+        return ConnectionFactory_1.ConnectionFactory.getConnection()
             .then(s => {
-            return new Promise(resp => resp(s.transaction([ConnectionFactory.stores[0]], 'readwrite')
-                .objectStore(ConnectionFactory.stores[0])));
+            return new Promise(resp => resp(s.transaction([ConnectionFactory_1.ConnectionFactory.stores[0]], 'readwrite')
+                .objectStore(ConnectionFactory_1.ConnectionFactory.stores[0])));
         });
     }
     add(todo) {
@@ -35,7 +39,7 @@ class toDodao {
                 let atual = cursor.result;
                 if (atual) {
                     var dado = atual.value;
-                    todos.push(new toDo(dado.nome, dado.desc, dado.data));
+                    todos.push(new toDo_1.toDo(dado.nome, dado.desc, dado.data));
                     atual.continue();
                 }
                 else {
@@ -55,4 +59,5 @@ class toDodao {
         });
     }
 }
+exports.toDodao = toDodao;
 //# sourceMappingURL=toDodao.js.map

@@ -1,4 +1,5 @@
-class ConnectionFactory{
+import {toDo} from '../model/toDo';
+export class ConnectionFactory{
     static stores = ["lis"];
     private static dbName = "toDo";
     private static version = 1;

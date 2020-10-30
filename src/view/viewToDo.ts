@@ -1,4 +1,7 @@
-class viewToDo {
+import {listaToDo} from '../model/listaToDo';
+import {DataHelper} from '../helper/dateHelper'
+
+export class viewToDo {
     private element:HTMLLIElement;
     constructor(elemet:HTMLLIElement) {
         this.element = elemet;

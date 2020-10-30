@@ -1,5 +1,5 @@
- 
-class toDo {
+import {DataHelper} from '../helper/dateHelper'
+export class toDo {
     nome:string;
     desc:string;
     data:Date;

@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const toDo_1 = require("../model/toDo");
 class controllerIndexDb {
     constructor() {
         this.tableName = "lis";
@@ -41,7 +44,7 @@ class controllerIndexDb {
                 let atual = cursor.result;
                 if (atual) {
                     var dado = atual.value;
-                    todos.push(new toDo(dado.nome, dado.desc, dado.data));
+                    todos.push(new toDo_1.toDo(dado.nome, dado.desc, dado.data));
                     atual.continue();
                 }
                 else {
@@ -54,4 +57,5 @@ class controllerIndexDb {
         });
     }
 }
+exports.controllerIndexDb = controllerIndexDb;
 //# sourceMappingURL=controllerIndexDb.js.map

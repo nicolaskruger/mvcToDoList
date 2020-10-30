@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/index.css">
+    <script src="node_modules/systemjs/dist/system.js"></script>
     <title>To Do List</title>
 </head>
 <body>
@@ -31,7 +32,7 @@
             <button id="submit"> push</button>
             <button id="apaga" type="button" onclick="controller.erase(event)"> clear</button>
         </form>
-        <script src="./dist/services/ProxyFactory.js"></script>
+        <!-- <script src="./dist/services/ProxyFactory.js"></script>
         <script src="./dist/model/toDo.js"></script>
         <script src="./dist/model/listaToDo.js"></script>
         <script src="./dist/dao/toDodao.js"></script>
@@ -41,7 +42,14 @@
         <script src="./dist/controller/controlerToDo.js"></script>
         <script src="./dist/helper/dateHelper.js"></script>
         <script src="./dist/view/viewToDo.js"></script>
-        <script src="./dist/app.js"></script>
+        <script src="./dist/app.js"></script> -->
+        
+        <script>
+            System.defaultJSExtensions = true;
+            System.import('./dist/app').catch(function(err){
+                console.error(err);
+            });
+        </script>
 
     </main>
 </body>

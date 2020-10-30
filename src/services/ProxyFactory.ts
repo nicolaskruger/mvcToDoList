@@ -1,4 +1,4 @@
-class ProxyFactory{
+export class ProxyFactory{
     static create(obj,props,acao){
         return new Proxy(obj,{
             get:function(target,prop,receive){

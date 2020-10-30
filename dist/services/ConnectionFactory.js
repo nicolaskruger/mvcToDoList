@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const toDo_1 = require("../model/toDo");
 class ConnectionFactory {
     static getConnection() {
         return new Promise((resolve, reject) => {
@@ -55,7 +58,7 @@ class ConnectionFactory {
                     let atual = cursor.result;
                     if (atual) {
                         var dado = atual.value;
-                        todos.push(new toDo(dado.nome, dado.desc, dado.data));
+                        todos.push(new toDo_1.toDo(dado.nome, dado.desc, dado.data));
                         atual.continue();
                     }
                     else {
@@ -70,4 +73,5 @@ ConnectionFactory.stores = ["lis"];
 ConnectionFactory.dbName = "toDo";
 ConnectionFactory.version = 1;
 ConnectionFactory.connection = null;
+exports.ConnectionFactory = ConnectionFactory;
 //# sourceMappingURL=ConnectionFactory.js.map

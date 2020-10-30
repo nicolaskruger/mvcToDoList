@@ -1,4 +1,10 @@
-class controllerToDo{
+import {toDoServices} from '../services/toDoServices';
+import {listaToDo} from '../model/listaToDo';
+import {toDo} from '../model/toDo';
+import {viewToDo} from '../view/viewToDo';
+import {ProxyFactory} from '../services/ProxyFactory';
+
+export class controllerToDo{
     private $ = document.querySelector.bind(document);
     private inputs = [
         this.$("#nome") as HTMLInputElement,

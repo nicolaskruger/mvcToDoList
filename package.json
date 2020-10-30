@@ -15,6 +15,7 @@
     "typescript": "^3.3.3"
   },
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "systemjs": "^0.19.31"
   }
 }

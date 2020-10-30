@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const dateHelper_1 = require("../helper/dateHelper");
 class viewToDo {
     constructor(elemet) {
         this.element = elemet;
@@ -9,7 +12,7 @@ class viewToDo {
                     <li class="interLista">
                         <p>${s.nome}</p>
                         <p>${s.desc}</p>
-                        <p>${DataHelper.dateToString(s.data)}</p>
+                        <p>${dateHelper_1.DataHelper.dateToString(s.data)}</p>
                         <p>${s.DaysTo}</p>
                     </li>
             `).join('')}      
@@ -19,4 +22,5 @@ class viewToDo {
         this.element.innerHTML = this.template(models);
     }
 }
+exports.viewToDo = viewToDo;
 //# sourceMappingURL=viewToDo.js.map

@@ -1,7 +1,8 @@
 interface fEventTarget extends  EventTarget{
     result:string;
 }
-class controllerIndexDb {
+import {toDo} from '../model/toDo'
+export class controllerIndexDb {
     private openRequest:IDBOpenDBRequest;
     private connection:IDBDatabase;
     private tableName = "lis";

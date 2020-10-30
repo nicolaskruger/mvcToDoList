@@ -1,3 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const toDoServices_1 = require("../services/toDoServices");
+const listaToDo_1 = require("../model/listaToDo");
+const toDo_1 = require("../model/toDo");
+const viewToDo_1 = require("../view/viewToDo");
+const ProxyFactory_1 = require("../services/ProxyFactory");
 class controllerToDo {
     constructor() {
         this.$ = document.querySelector.bind(document);
@@ -7,9 +14,9 @@ class controllerToDo {
             this.$("#data"),
         ];
         this.L = this.$("#lista");
-        this.service = new toDoServices();
-        this.lista = ProxyFactory.create(new listaToDo(), ['add', 'erase'], (model) => this.view.set(model));
-        this.view = new viewToDo(this.L);
+        this.service = new toDoServices_1.toDoServices();
+        this.lista = ProxyFactory_1.ProxyFactory.create(new listaToDo_1.listaToDo(), ['add', 'erase'], (model) => this.view.set(model));
+        this.view = new viewToDo_1.viewToDo(this.L);
         this.addDb();
     }
     addDb() {
@@ -19,7 +26,7 @@ class controllerToDo {
     }
     add(event) {
         event.preventDefault();
-        let todo = new toDo(...this.inputs
+        let todo = new toDo_1.toDo(...this.inputs
             .map(s => s.value));
         this.service
             .add(todo)
@@ -40,4 +47,5 @@ class controllerToDo {
         });
     }
 }
+exports.controllerToDo = controllerToDo;
 //# sourceMappingURL=controlerToDo.js.map

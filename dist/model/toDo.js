@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const dateHelper_1 = require("../helper/dateHelper");
 class toDo {
     get DaysTo() {
         var diff = Math.abs(this.data.getTime() - new Date().getTime());
@@ -10,11 +13,12 @@ class toDo {
         this.nome = nome;
         this.desc = desc;
         try {
-            this.data = DataHelper.stringToDate(date);
+            this.data = dateHelper_1.DataHelper.stringToDate(date);
         }
         catch (error) {
             this.data = new Date(date);
         }
     }
 }
+exports.toDo = toDo;
 //# sourceMappingURL=toDo.js.map

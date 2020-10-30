@@ -1,6 +1,7 @@
+import {ConnectionFactory} from '../services/ConnectionFactory';
+import {toDo} from '../model/toDo';
 
-
-class toDodao {
+export class toDodao {
     private connection:IDBDatabase;
     private store = ConnectionFactory.stores[0];
     constructor(connetion:IDBDatabase) {

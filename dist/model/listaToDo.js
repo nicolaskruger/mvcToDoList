@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 class listaToDo {
     constructor() {
         this.lis = [];
@@ -12,4 +14,5 @@ class listaToDo {
         this.lis = [];
     }
 }
+exports.listaToDo = listaToDo;
 //# sourceMappingURL=listaToDo.js.map

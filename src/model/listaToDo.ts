@@ -1,4 +1,5 @@
-class listaToDo{
+import {toDo} from './toDo';
+export class listaToDo{
     private lis :Array<toDo> = [];
     public get Lis(){
         return [...this.lis];

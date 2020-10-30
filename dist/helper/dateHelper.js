@@ -1,6 +1,9 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 function DateToString(dat) {
     return dat.getDate() + '/' + ((dat.getMonth() + 1) < 10 ? `0${dat.getMonth() + 1}` : `${(dat.getMonth() + 1)}`) + '/' + dat.getFullYear();
 }
+exports.DateToString = DateToString;
 class DataHelper {
     constructor() {
         throw new Error("data helper não pode ser instanciado");
@@ -14,4 +17,5 @@ class DataHelper {
         return `${dat.getDate()}/${((dat.getMonth() + 1) < 10 ? `0${dat.getMonth() + 1}` : `${(dat.getMonth() + 1)}`)}/${dat.getFullYear()}`;
     }
 }
+exports.DataHelper = DataHelper;
 //# sourceMappingURL=dateHelper.js.map
